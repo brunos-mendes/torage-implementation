@@ -19,7 +19,7 @@ import java.util.List;
 public class Material {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String name;
@@ -28,6 +28,6 @@ public class Material {
     private Double BuyAvgPricePerKg;
     private Double SellPricePerKg;
 
-    @OneToMany(mappedBy = "material")
-    private List<Jewel> jewels;
+    @OneToMany(mappedBy = "material", cascade = CascadeType.ALL)
+    private List<Jewel> jewels = new ArrayList<Jewel>();
 }

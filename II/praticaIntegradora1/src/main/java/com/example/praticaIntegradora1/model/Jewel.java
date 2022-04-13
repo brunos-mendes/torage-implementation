@@ -14,19 +14,17 @@ import javax.persistence.*;
 public class Jewel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String model;
 
     @ManyToOne
-    @JoinColumn(name="category_id", nullable=false)
     private Category category;
 
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="material_id", nullable=false)
     private Material material;
 
     private Double weight;

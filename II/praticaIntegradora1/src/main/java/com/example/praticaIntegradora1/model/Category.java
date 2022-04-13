@@ -19,11 +19,11 @@ import java.util.List;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<Jewel> jewels;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Jewel> jewels = new ArrayList<Jewel>();
 }
